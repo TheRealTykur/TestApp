@@ -1,54 +1,54 @@
 <?php
 function addBag($email, $name, $price, $quantity, $item_id, $notes, $option1, $option2, $extra1, $extra2, $extra3) {
     $db = new PDO("sqlite:content.db");
-	
-	// Insert into the specific user's table
+    
+    // Insert into the specific user's table
     $sql = "INSERT INTO cart (email, name, price, quantity, item_id, notes, option1, option2, extra1, extra2, extra3) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
-	
+    
     $stmt= $db->prepare($sql);
     $stmt->execute([$email, $name, $price, $quantity, $item_id, $notes, $option1, $option2, $extra1, $extra2, $extra3]);
-	
+    
     $db = NULL;
 }
 
 function addStoreOrder($orderID,$email,$name,$price,$quantity,$itemID,$notes,$option1,$option2,$extra1,$extra2,$extra3) {
     $db = new PDO("sqlite:content.db");
-	
-	// Insert into the specific user's table
+    
+    // Insert into the specific user's table
     $sql = "INSERT INTO storeOrder (orderID,email,name,price,quantity,item_id,notes,option1,option2,extra1,extra2,extra3) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
-	
+    
     $stmt= $db->prepare($sql);
     $stmt->execute([$orderID,$email,$name,$price,$quantity,$itemID,$notes,$option1,$option2,$extra1,$extra2,$extra3]);
-	
+    
     $db = NULL;
 }
 
 function addFav($email,$name,$price,$fav_id,$option1,$option2,$extra1,$extra2,$extra3) {
     $db = new PDO("sqlite:content.db");
-	
-	// Insert into the specific user's table
+    
+    // Insert into the specific user's table
     $sql = "INSERT INTO favorites (email,name,price,fav_id,option1,option2,extra1,extra2,extra3) VALUES (?,?,?,?,?,?,?,?,?)";
-	
+    
     $stmt= $db->prepare($sql);
     $stmt->execute([$email,$name,$price,$fav_id,$option1,$option2,$extra1,$extra2,$extra3]);
-	
+    
     $db = NULL;
 }
 
 function addOrder($orderID,$email,$pickup,$time_placed,$date_placed,$status,$subtotal,$combTotal) {
     $db = new PDO("sqlite:content.db");
-	
-	// Insert into the specific user's table
+    
+    // Insert into the specific user's table
     $sql = "INSERT INTO orderInfo (orderID,email,pickup,time_placed,date_placed,status,subtotal,combineTotal) VALUES (?,?,?,?,?,?,?,?)";
-	
+    
     $stmt= $db->prepare($sql);
     $stmt->execute([$orderID,$email,$pickup,$time_placed,$date_placed,$status,$subtotal,$combTotal]);
-	
+    
     $db = NULL;
 }
 
 function cancelOrder ($order_id, $email) {
-	    $db = new PDO("sqlite:content.db");
+        $db = new PDO("sqlite:content.db");
     $sql = "UPDATE orderInfo SET status='Canceled' WHERE orderID=? AND email=?";
     $stmt = $db->prepare($sql);
     $stmt->execute(array($order_id, $email));
@@ -58,9 +58,9 @@ function cancelOrder ($order_id, $email) {
 
 function removeFav($fav_id,$email) {
     $db = new PDO("sqlite:content.db");
-	
+    
     $sql = "DELETE FROM favorites WHERE fav_id=? AND email=?";
-	
+    
     $stmt = $db->prepare($sql);
     $bool=$stmt->execute([$fav_id,$email]);
     $db = NULL;
@@ -86,9 +86,9 @@ function checkCart($email) {
 
 function deleteItem($email, $item_id) {
     $db = new PDO("sqlite:content.db");
-	
+    
     $sql = "DELETE FROM cart WHERE email=? AND item_id=?";
-	
+    
     $stmt = $db->prepare($sql);
     $bool=$stmt->execute([$email,$item_id]);
     $db = NULL;
@@ -100,13 +100,13 @@ function changeQuantity($quantity, $email, $item_id) {
     $stmt = $db->prepare($sql);
     $stmt->execute(array($quantity, $item_id, $email));
     
-    $db=NULL;	
+    $db=NULL;    
 }
 
 /* Function Name: insertUserRecord
  * Description: insert user information into the database
  * Parameters: (string) $fname: the user's first name
- *	       (string) $lname: the user's last name
+ *           (string) $lname: the user's last name
  *             (string) $email: the user's email
  *             (string) $password: the user's password
  * Return Value: (boolean) TRUE if the information was successfully inserted,
@@ -117,16 +117,16 @@ function insertUserRecord($fname, $lname, $email, $password) {
     // try to insert into the database
     // if an error occurs return FALSE
     try {
-	$db = new PDO("sqlite:content.db");
+    $db = new PDO("sqlite:content.db");
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $sql = "INSERT INTO users VALUES ('$fname', '$lname', '$email', '$password')";
         $db->exec($sql);
-	return TRUE;
+    return TRUE;
     }
     catch (Exception $e) {
         return FALSE;
     }
-	$db = NULL;
+    $db = NULL;
 }
 
 /* Function Name: getUserRecord
@@ -139,7 +139,7 @@ function getUserRecord($email) {
     // try to query the database
     // if an error occurs return FALSE
     try {
-	$db = new PDO("sqlite:content.db");
+    $db = new PDO("sqlite:content.db");
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $sql = "SELECT * FROM users WHERE email='$email'";
         $stmt = $db->query($sql);
@@ -147,9 +147,9 @@ function getUserRecord($email) {
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
     catch (Exception $e) {
-	return false;
+    return false;
     }
-	$db = NULL;
+    $db = NULL;
 }
 
 /* Function Name: deleteRecord
@@ -161,12 +161,12 @@ function getUserRecord($email) {
  */
 function deleteRecord($user_name, $name) {
     $db = new PDO("sqlite:content.db");
-	
+    
     $sql = "DELETE FROM '$user_name' WHERE contact_name = ?";
-	
+    
     $stmt = $db->prepare($sql);
     $stmt->execute([$name]);
-	
+    
     $db = NULL;
 }
 
@@ -188,9 +188,9 @@ function updatePassRecord($value, $email) {
     return true;
     }
     catch (Exception $e) {
-	return false;
+    return false;
     }
-	$db = NULL;
+    $db = NULL;
 }
 
 /* Function Name: updateRecord
@@ -211,9 +211,9 @@ function updateFname($value, $email) {
     return true;
     }
     catch (Exception $e) {
-	return false;
+    return false;
     }
-	$db = NULL;
+    $db = NULL;
 }
 
 /* Function Name: updateRecord
@@ -234,9 +234,9 @@ function updateLname($value, $email) {
     return true;
     }
     catch (Exception $e) {
-	return false;
+    return false;
     }
-	$db = NULL;
+    $db = NULL;
 }
 function updateEmail($value, $pass) {
     $db = new PDO("sqlite:content.db");
@@ -247,9 +247,9 @@ function updateEmail($value, $pass) {
     return true;
     }
     catch (Exception $e) {
-	return false;
+    return false;
     }
-	$db = NULL;
+    $db = NULL;
 }
 
 /* Function Name: doesEmailExist
@@ -264,7 +264,7 @@ function doesEmailExist($email) {
     $sql = "SELECT email FROM users";
     $stmt = $db->query($sql);
     $records = $stmt->fetchall(PDO::FETCH_ASSOC);
-	
+    
     foreach ($records as $record) {
         if ($record['email'] == $email) {
             $result = true;
@@ -287,7 +287,7 @@ function updateEmailExist($email,$hashed) {
     $sql = "SELECT email,password FROM users";
     $stmt = $db->query($sql);
     $records = $stmt->fetchall(PDO::FETCH_ASSOC);
-	
+    
     foreach ($records as $record) {
         if ($record['email'] == $email && $record['password'] != $hashed) {
             $result = true;

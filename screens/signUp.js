@@ -36,27 +36,27 @@ export default class SignInScreen extends Component {
   }  // End constructor
 
   componentDidMount() {
-		// Networking for retrieving the user information
-		fetch('https://smagr173.heliohost.us/public/fetchRecord.php', {
-		  method:'POST',
-		  header:{
-			'Accept': 'application/json',
-			'Content-type': 'application/json'
-		  }
-		}) // End fetch
-		// Handle the response from PHP
-		.then((response) => response.json())
-		  .then((responseJson) => {
+        // Networking for retrieving the user information
+        fetch('https://smagr173.heliohost.us/public/fetchRecord.php', {
+          method:'POST',
+          header:{
+            'Accept': 'application/json',
+            'Content-type': 'application/json'
+          }
+        }) // End fetch
+        // Handle the response from PHP
+        .then((response) => response.json())
+          .then((responseJson) => {
         if(responseJson.email != null) {
-			  this.setState({
-				 userEmail: responseJson.email
+              this.setState({
+                 userEmail: responseJson.email
       });
     }
-		})
-		.catch((error) => {
-			console.error(error);
-		});
-	  }  // End componentDidMount()
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+      }  // End componentDidMount()
 
 // On text change userSignIn gets called
 // Inputs get checked, then sent as JSON to PHP file, error msgs sent back
@@ -92,7 +92,7 @@ export default class SignInScreen extends Component {
       return false;
       }
     else if(userEmail=="" && userPassword=="") {
-		  this.setState({ emailPlace: 'Email address is required'})
+          this.setState({ emailPlace: 'Email address is required'})
       this.setState({ placeTextEmail: 'brown'})
       this.setState({ passPlace:'Password is required'})
       this.setState({ placeTextPass: 'brown'})
@@ -207,7 +207,7 @@ export default class SignInScreen extends Component {
           placeholderTextColor={placeTextEmail}
           style={{marginBottom: 5,paddingHorizontal:5,marginTop:7,width:Dimensions.get('window').width*.93,
           height:Dimensions.get('window').height*.058,margin:10, borderColor:"#FF5733",borderWidth:2,
-          fontSize:Dimensions.get('window').height*.023}}	
+          fontSize:Dimensions.get('window').height*.023}}    
           underlineColorAndroid="transparent"
           onChangeText= {this.handleEmail}  // On event set value for email
           value= {this.state.userEmail}
@@ -220,7 +220,7 @@ export default class SignInScreen extends Component {
           placeholderTextColor={placeTextEmail}
           style={{marginBottom: 5,paddingHorizontal:5,marginTop:7,width:Dimensions.get('window').width*.93,
           height:Dimensions.get('window').height*.058,margin:10, borderColor:"gray",borderWidth:2,
-          fontSize:Dimensions.get('window').height*.023}}	
+          fontSize:Dimensions.get('window').height*.023}}    
           underlineColorAndroid="transparent"
           onChangeText= {this.handleEmail}  // On event set value for email
           value= {this.state.userEmail}
@@ -241,7 +241,7 @@ export default class SignInScreen extends Component {
           returnKeyType='done'
           placeholderTextColor={placeTextPass}
           placeholder={passPlace} secureTextEntry={this.state.hidden}
-          style={{flex: 1, fontSize:Dimensions.get('window').height*.023}}	
+          style={{flex: 1, fontSize:Dimensions.get('window').height*.023}}    
           underlineColorAndroid="transparent"
           onChangeText= {this.handlePass}  // On event set value for password
         /> 
@@ -263,17 +263,17 @@ export default class SignInScreen extends Component {
             returnKeyType='done'
             placeholderTextColor={placeTextPass}
             placeholder={passPlace} secureTextEntry={this.state.hidden}
-            style={{flex: 1, fontSize:Dimensions.get('window').height*.023}}	
+            style={{flex: 1, fontSize:Dimensions.get('window').height*.023}}    
             underlineColorAndroid="transparent"
             onChangeText= {this.handlePass}  // On event set value for password
             />
             <View style={{ marginRight: Dimensions.get('window').width*.015, justifyContent: 'center'}}>
             <Ionicons
-			    	name={this.state.eyeIcon}
-				    size={Dimensions.get('window').height*.043}
-				    color={'brown'}
-				    onPress={() => this.handleIcon()}
-			      />
+                    name={this.state.eyeIcon}
+                    size={Dimensions.get('window').height*.043}
+                    color={'brown'}
+                    onPress={() => this.handleIcon()}
+                  />
             </View>
           </View>
     

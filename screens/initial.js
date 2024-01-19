@@ -42,13 +42,13 @@ export default class InitialScreen extends Component {
       // Image of the main logo and Bagel Bar name
       <View style={styles.container}>
         <Image source={require('../assets/images/mainLogo.png')}
-  	      style={styles.image1} />
+            style={styles.image1} />
   
         <Image source={require('../assets/images/divider.png')}
-  	    style={styles.divider} />
+          style={styles.divider} />
   
         <Image source={require('../assets/images/grayOrder.png')}
-	      style={styles.image2} />
+          style={styles.image2} />
 
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'flex-end', marginBottom: 43}}>
            <TouchableOpacity style={styles.topButton}  // Create account button

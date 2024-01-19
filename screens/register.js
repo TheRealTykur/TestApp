@@ -24,7 +24,7 @@ export default class register extends Component {
         userLname: '',
         userEmail: '', 
         userPassword1: '',
-        fnamePlace: 'First Name',	
+        fnamePlace: 'First Name',    
         lnamePlace: 'Last Name',
         emailPlace: 'Email Address',
         passPlace: 'Password',
@@ -237,7 +237,7 @@ export default class register extends Component {
       return false;
     }
     else if(userEmail=="" && userPassword1=="" && userFname=="" && userLname=="") {
-		  this.setState({ emailPlace: 'Email address is required'})
+          this.setState({ emailPlace: 'Email address is required'})
       this.setState({ emailPlaceText: 'brown'})
       this.setState({ passPlace:'Password is required'})
       this.setState({ passPlaceText: 'brown'})
@@ -247,7 +247,7 @@ export default class register extends Component {
       this.setState({ lnamePlaceText: 'brown'})
     }
     else if(userEmail=="" && userPassword1=="" && userFname=="") {
-		  this.setState({ emailPlace: 'Email address is required'})
+          this.setState({ emailPlace: 'Email address is required'})
       this.setState({ emailPlaceText: 'brown'})
       this.setState({ passPlace:'Password is required'})
       this.setState({ passPlaceText: 'brown'})
@@ -309,7 +309,7 @@ export default class register extends Component {
       this.setState({ lnamePlaceText: 'brown'})
     }
     else if(userEmail=="" && userPassword1=="") {
-		  this.setState({ emailPlace: 'Email address is required'})
+          this.setState({ emailPlace: 'Email address is required'})
       this.setState({ emailPlaceText: 'brown'})
       this.setState({ passPlace:'Password is required'})
       this.setState({ passPlaceText: 'brown'})
@@ -339,10 +339,10 @@ export default class register extends Component {
       this.setState({ invalidPass:'Password must be at least 6 characters'})
       this.setState({ passErrOccur: true})
     }
-		else if(reg.test(userEmail) === false && userEmail!="") {
+        else if(reg.test(userEmail) === false && userEmail!="") {
     this.setState({ invalidEmail: 'Email address must be valid'})
     this.setState({ emailErrOccur: true})
-		return false;
+        return false;
     }
     else{
     // Networking for sending user inputs to PHP server
@@ -470,7 +470,7 @@ export default class register extends Component {
           placeholderTextColor={fnamePlaceText}
           style={{paddingHorizontal:7,marginTop:2,width:Dimensions.get('window').width*.93,
           height:Dimensions.get('window').height*.058, borderColor:"#FF5733", borderWidth:2,
-          fontSize:Dimensions.get('window').height*.023,marginBottom:15}}	
+          fontSize:Dimensions.get('window').height*.023,marginBottom:15}}    
           underlineColorAndroid="transparent"
           onChangeText = {this.handleFname}  // On event set value for first name
           value = {userFname}
@@ -483,7 +483,7 @@ export default class register extends Component {
           placeholderTextColor={fnamePlaceText}
           style={{paddingHorizontal:7,marginTop:2,width:Dimensions.get('window').width*.93,
           height:Dimensions.get('window').height*.058, borderColor:"gray", borderWidth:2,
-          fontSize:Dimensions.get('window').height*.023,marginBottom:15}}	
+          fontSize:Dimensions.get('window').height*.023,marginBottom:15}}    
           underlineColorAndroid="transparent"
           onChangeText = {this.handleFname}  // On event set value for first name
           value = {userFname}
@@ -496,7 +496,7 @@ export default class register extends Component {
           placeholder={ lnamePlace }
           placeholderTextColor={lnamePlaceText}
           style={{ paddingHorizontal: 7,width: Dimensions.get('window').width*.93,height: Dimensions.get('window').height*.058,
-            borderColor: '#FF5733', borderWidth: 2, fontSize: Dimensions.get('window').height*.023,marginBottom: 15}}	
+            borderColor: '#FF5733', borderWidth: 2, fontSize: Dimensions.get('window').height*.023,marginBottom: 15}}    
           underlineColorAndroid="transparent"
           onChangeText = {this.handleLname}  // On event set value for last name
           value = {userLname}
@@ -507,7 +507,7 @@ export default class register extends Component {
           placeholder={ lnamePlace }
           placeholderTextColor={lnamePlaceText}
           style={{ paddingHorizontal: 7,width: Dimensions.get('window').width*.93,height: Dimensions.get('window').height*.058,
-            borderColor: 'gray', borderWidth: 2, fontSize: Dimensions.get('window').height*.023,marginBottom: 15}}	
+            borderColor: 'gray', borderWidth: 2, fontSize: Dimensions.get('window').height*.023,marginBottom: 15}}    
           underlineColorAndroid="transparent"
           onChangeText = {this.handleLname}  // On event set value for last name
           value = {userLname}
@@ -522,7 +522,7 @@ export default class register extends Component {
           placeholder={ emailPlace }
           placeholderTextColor={emailPlaceText}
           style={{paddingHorizontal:7, width:Dimensions.get('window').width*.93, height:Dimensions.get('window').height*.058,
-          marginBottom:4,borderColor:"#FF5733", borderWidth:2,fontSize:Dimensions.get('window').height*.023}}	
+          marginBottom:4,borderColor:"#FF5733", borderWidth:2,fontSize:Dimensions.get('window').height*.023}}    
           underlineColorAndroid="transparent"
           onChangeText={this.handleEmail} // On event set value for email
           value={userEmail}
@@ -533,7 +533,7 @@ export default class register extends Component {
           placeholder={ emailPlace }
           placeholderTextColor={emailPlaceText}
           style={{paddingHorizontal:7, width:Dimensions.get('window').width*.93, height:Dimensions.get('window').height*.058,
-          marginBottom:4,borderColor:"gray", borderWidth:2,fontSize:Dimensions.get('window').height*.023}}	
+          marginBottom:4,borderColor:"gray", borderWidth:2,fontSize:Dimensions.get('window').height*.023}}    
           underlineColorAndroid="transparent"
           onChangeText={this.handleEmail} // On event set value for email
           value={userEmail}
@@ -555,7 +555,7 @@ export default class register extends Component {
           placeholder={ passPlace }
           secureTextEntry={this.state.hidden}
           placeholderTextColor={passPlaceText}
-          style={{flex: 1, fontSize:Dimensions.get('window').height*.023,}}	
+          style={{flex: 1, fontSize:Dimensions.get('window').height*.023,}}    
           underlineColorAndroid="transparent"
           onChangeText= {this.handlePass} // On event set value for password
           value = {userPassword1}
@@ -578,18 +578,18 @@ export default class register extends Component {
           placeholder={ passPlace }
           secureTextEntry={this.state.hidden}
           placeholderTextColor={passPlaceText}
-          style={{flex: 1, fontSize:Dimensions.get('window').height*.023,}}	
+          style={{flex: 1, fontSize:Dimensions.get('window').height*.023,}}    
           underlineColorAndroid="transparent"
           onChangeText= {this.handlePass} // On event set value for password
           value = {userPassword1}
         />
         <View style={{ marginRight: Dimensions.get('window').width*.015, justifyContent: 'center'}}>
             <Ionicons
-			    	name={this.state.eyeIcon}
-				    size={Dimensions.get('window').height*.043}
-				    color={'brown'}
-				    onPress={() => this.handleIcon()}
-			      />
+                    name={this.state.eyeIcon}
+                    size={Dimensions.get('window').height*.043}
+                    color={'brown'}
+                    onPress={() => this.handleIcon()}
+                  />
             </View>
           </View>
         }

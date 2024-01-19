@@ -16,34 +16,34 @@ import { ActivityIndicator, Image, StyleSheet, Text, View, TouchableOpacity } fr
 export default class SettingsScreen extends Component {
 
   constructor(props) {
-		super(props)
-		  this.state = {
+        super(props)
+          this.state = {
       loggedIn: false,
       isLoading: true,
       fName: '',
       lName: '',
       userEmail: ''
-		  };
-	  }  // End constructor
-	  componentDidMount() {
-		// Networking for retrieving the user information
-		fetch('https://smagr173.heliohost.us/public/fetchRecord.php', {
-		  method:'POST',
-		  header:{
-			'Accept': 'application/json',
-			'Content-type': 'application/json'
-		  },  
-		}) // End fetch
-		// Handle the response from PHP
-		.then((response) => response.json())
-		  .then((responseJson) => {
-			if(responseJson.empty == 0) {
-				this.setState ({ 
+          };
+      }  // End constructor
+      componentDidMount() {
+        // Networking for retrieving the user information
+        fetch('https://smagr173.heliohost.us/public/fetchRecord.php', {
+          method:'POST',
+          header:{
+            'Accept': 'application/json',
+            'Content-type': 'application/json'
+          },  
+        }) // End fetch
+        // Handle the response from PHP
+        .then((response) => response.json())
+          .then((responseJson) => {
+            if(responseJson.empty == 0) {
+                this.setState ({ 
           loggedIn: false,
           isLoading: false,
         })
-			  }
-			else {
+              }
+            else {
         this.setState ({
           loggedIn: true,
           isLoading: false,
@@ -56,7 +56,7 @@ export default class SettingsScreen extends Component {
       .catch((error)=>{
         console.error(error);
         });
-	  }  // End componentDidMount
+      }  // End componentDidMount
 
     showButtons = () => {
       const {navigate} = this.props.navigation;
@@ -65,21 +65,21 @@ export default class SettingsScreen extends Component {
         return (
           <View style={styles.container}>
             <View style={{backgroundColor: '#F0F0F0',width: Dimensions.get('window').width,
-				      height: Dimensions.get('window').width*.35, borderBottomWidth: 0, borderColor: 'black'}}>
-					<View style={{ flex: 1, flexDirection: 'row', alignItems: 'center'}}>
-						<Image source={require('../assets/images/profile.png')}
-  	   				 	 style={styles.image1} />
-						<View style={{ marginLeft: Dimensions.get('window').width*.08, marginTop: -(Dimensions.get('window').height*.007)}}>
+                      height: Dimensions.get('window').width*.35, borderBottomWidth: 0, borderColor: 'black'}}>
+                    <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center'}}>
+                        <Image source={require('../assets/images/profile.png')}
+                               style={styles.image1} />
+                        <View style={{ marginLeft: Dimensions.get('window').width*.08, marginTop: -(Dimensions.get('window').height*.007)}}>
                 <Text style={styles.subtitle}>Name:</Text>
-					    	<Text style={styles.subtitle2}>{this.state.fName} {this.state.lName}</Text>
+                            <Text style={styles.subtitle2}>{this.state.fName} {this.state.lName}</Text>
               
               <View style={{ marginTop: Dimensions.get('window').height*.01}}>
                 <Text style={styles.subtitle}>Email Address:</Text>
                 <Text style={styles.subtitle2}>{this.state.userEmail}</Text>
-						  </View>
+                          </View>
             </View>
-					</View>
-				</View>
+                    </View>
+                </View>
 
         <View style={{ justifyContent: 'flex-start'}}>
           <TouchableOpacity  // Update information button
@@ -89,11 +89,11 @@ export default class SettingsScreen extends Component {
         <View style={{ flexDirection: 'row'}}>
           <Text style={styles.buttonText2}>Update Account Information</Text>
               <View style={{flex: 1, marginRight: Dimensions.get('window').width *.065,alignItems: 'flex-end'}}>
-						    <Ionicons
-				                name={'ios-arrow-forward'}
-				                size={Dimensions.get('window').width*.065}
-				                color={'black'}
-			          />
+                            <Ionicons
+                                name={'ios-arrow-forward'}
+                                size={Dimensions.get('window').width*.065}
+                                color={'black'}
+                      />
               </View>
         </View>
        </TouchableOpacity> 
@@ -107,11 +107,11 @@ export default class SettingsScreen extends Component {
         <View style={{ flexDirection: 'row'}}>
           <Text style={styles.buttonText2}>About the Bagel Bar</Text>
               <View style={{flex: 1, marginRight: Dimensions.get('window').width *.065,alignItems: 'flex-end'}}>
-						    <Ionicons
-				                name={'ios-arrow-forward'}
-				                size={Dimensions.get('window').width*.065}
-				                color={'black'}
-			          />
+                            <Ionicons
+                                name={'ios-arrow-forward'}
+                                size={Dimensions.get('window').width*.065}
+                                color={'black'}
+                      />
               </View>
         </View>
        </TouchableOpacity> 
@@ -125,11 +125,11 @@ export default class SettingsScreen extends Component {
         <View style={{ flexDirection: 'row'}}>
           <Text style={styles.buttonText2}>App Feedback</Text>
               <View style={{flex: 1, marginRight: Dimensions.get('window').width *.065,alignItems: 'flex-end'}}>
-						    <Ionicons
-				                name={'ios-arrow-forward'}
-				                size={Dimensions.get('window').width*.065}
-				                color={'black'}
-			          />
+                            <Ionicons
+                                name={'ios-arrow-forward'}
+                                size={Dimensions.get('window').width*.065}
+                                color={'black'}
+                      />
               </View>
         </View>
        </TouchableOpacity> 
@@ -143,11 +143,11 @@ export default class SettingsScreen extends Component {
         <View style={{ flexDirection: 'row'}}>
           <Text style={styles.buttonText2}>Support & Help</Text>
               <View style={{flex: 1, marginRight: Dimensions.get('window').width *.065,alignItems: 'flex-end'}}>
-						    <Ionicons
-				                name={'ios-arrow-forward'}
-				                size={Dimensions.get('window').width*.065}
-				                color={'black'}
-			          />
+                            <Ionicons
+                                name={'ios-arrow-forward'}
+                                size={Dimensions.get('window').width*.065}
+                                color={'black'}
+                      />
               </View>
         </View>
        </TouchableOpacity> 
@@ -161,11 +161,11 @@ export default class SettingsScreen extends Component {
         <View style={{ flexDirection: 'row'}}>
           <Text style={styles.buttonText2}>Logout</Text>
               <View style={{flex: 1, marginRight: Dimensions.get('window').width *.065,alignItems: 'flex-end'}}>
-						    <Ionicons
-				                name={'ios-arrow-forward'}
-				                size={Dimensions.get('window').width*.065}
-				                color={'black'}
-			          />
+                            <Ionicons
+                                name={'ios-arrow-forward'}
+                                size={Dimensions.get('window').width*.065}
+                                color={'black'}
+                      />
               </View>
         </View>
        </TouchableOpacity> 
@@ -220,12 +220,12 @@ padding:10, justifyContent:'center',backgroundColor:'black',alignItems:'center'}
   
   render() {
     if (this.state.isLoading) {
-			return (
-				<View style={{flex: 1, paddingTop: 20}}>
-					<ActivityIndicator />
-				</View>
-			);
-		}
+            return (
+                <View style={{flex: 1, paddingTop: 20}}>
+                    <ActivityIndicator />
+                </View>
+            );
+        }
     const {navigate} = this.props.navigation;
     return (
       <View style={styles.container}>
@@ -248,15 +248,15 @@ const styles = StyleSheet.create({
       marginBottom: 5,
   },
   image1: {
-		marginLeft: 10,
-		marginBottom: 5,
-		width: Dimensions.get('window').width *.25,
-		height: '65%',
-	  },
+        marginLeft: 10,
+        marginBottom: 5,
+        width: Dimensions.get('window').width *.25,
+        height: '65%',
+      },
   buttonText: {
-		fontWeight: 'bold',
-		color: 'white',
-		textAlign: 'center',
+        fontWeight: 'bold',
+        color: 'white',
+        textAlign: 'center',
     fontSize: Dimensions.get('window').height*.023,
     },
     buttonText2: {

@@ -71,21 +71,21 @@ class ShoppingCart {
          $itemCount = 0;
             foreach ($this->items as $arr) { 
                 $item = $arr['item']; // Get the item object
-		$itemArr['name'] = $item->getName();
-		$itemArr['price'] = $item->getPrice();
-		//$nameArr[] = $item->getName();
-		//$priceArr[] = $item->getPrice();
-		//$qtyArr[] = $item->getQuantity();
-		
-		//$itemCount = $itemCount + 1;
+        $itemArr['name'] = $item->getName();
+        $itemArr['price'] = $item->getPrice();
+        //$nameArr[] = $item->getName();
+        //$priceArr[] = $item->getPrice();
+        //$qtyArr[] = $item->getQuantity();
+        
+        //$itemCount = $itemCount + 1;
             } // end for 
-	    //$msgs[] = $itemArr2;
-	    //$msgs['name'] = $nameArr;
-	   // $msgs['price'] = $priceArr;
-	   // $msgs['quantity'] = $qtyArr;
-	   $msgs = $itemArr;
-	    //$msgs['succ'] = "Success";
-	echo json_encode($msgs);
+        //$msgs[] = $itemArr2;
+        //$msgs['name'] = $nameArr;
+       // $msgs['price'] = $priceArr;
+       // $msgs['quantity'] = $qtyArr;
+       $msgs = $itemArr;
+        //$msgs['succ'] = "Success";
+    echo json_encode($msgs);
     }
 
 } // End of ShoppingCart class 

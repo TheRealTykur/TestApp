@@ -18,7 +18,7 @@ cancelOrder($order_id,$email);
         $sql = "SELECT * FROM orderInfo WHERE email='$email' AND status='Pending' OR status='In Progress'";
         $stmt = $db->query($sql);
         // return cart as an associative array
-	$orderInfo = $stmt->fetchall(PDO::FETCH_ASSOC);
+    $orderInfo = $stmt->fetchall(PDO::FETCH_ASSOC);
     $db = NULL;
     
     echo json_encode($orderInfo);

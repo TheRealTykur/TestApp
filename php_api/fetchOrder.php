@@ -15,7 +15,7 @@ $json = file_get_contents('php://input');
         $sql = "SELECT * FROM storeOrder WHERE email='$email' AND orderID='$order_id'";
         $stmt = $db->query($sql);
         // return cart as an associative array
-	$order = $stmt->fetchall(PDO::FETCH_ASSOC);
+    $order = $stmt->fetchall(PDO::FETCH_ASSOC);
     $db = NULL;
 
       echo json_encode($order);  // Display messages in JSON format    

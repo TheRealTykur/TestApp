@@ -34,7 +34,7 @@ export default class AboutScreen extends Component {
             style={styles.image1} />
       
           <Image source={require('../assets/images/divider.png')}
-  	   			style={styles.divider} />
+                     style={styles.divider} />
 
           <Text style={styles.subtitle}>Contact</Text>
           <Text style={styles.bodyText}>610-683-5440</Text>
@@ -47,7 +47,7 @@ export default class AboutScreen extends Component {
           <Text style={styles.bodyText}>214 W. Main St. Kutztown, PA 19530</Text>
 
           <Image source={require('../assets/images/divider.png')}
-  	   			style={styles.dividerBottom} />
+                     style={styles.dividerBottom} />
 
           <Text style={styles.subtitle}>Map Location</Text>
 
@@ -93,10 +93,10 @@ const styles = StyleSheet.create({
     height: Dimensions.get('window').width * .5
   },
   divider: {
-		marginTop: 15,
-		width: Dimensions.get('window').width *.5,
-		height: Dimensions.get('window').width * .003,
-		marginBottom: 25,
+        marginTop: 15,
+        width: Dimensions.get('window').width *.5,
+        height: Dimensions.get('window').width * .003,
+        marginBottom: 25,
     },
     dividerBottom: {
       marginTop: 15,

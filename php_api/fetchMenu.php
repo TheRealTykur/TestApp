@@ -12,7 +12,7 @@ $db = new PDO("sqlite:content.db");
         $sql = "SELECT * FROM menu WHERE category='$category'";
         $stmt = $db->query($sql);
         // return menu as an associative array
-	$menu = $stmt->fetchall(PDO::FETCH_ASSOC);
+    $menu = $stmt->fetchall(PDO::FETCH_ASSOC);
 
 $db = NULL;
 echo json_encode($menu);  // Display messages in JSON format
