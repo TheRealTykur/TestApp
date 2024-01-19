@@ -13,9 +13,9 @@ $json = file_get_contents('php://input');
    
    if ($option == "Complete") {
     $db = new PDO("sqlite:content.db");
-        $sql = "SELECT * FROM orderInfo WHERE (email='$email' AND status='Canceled') OR (email='$email' AND status='Complete')";
-        $stmt = $db->query($sql);
-        // return cart as an associative array
+    $sql = "SELECT * FROM orderInfo WHERE (email='$email' AND status='Canceled') OR (email='$email' AND status='Complete')";
+    $stmt = $db->query($sql);
+    // return cart as an associative array
     $orderInfo = $stmt->fetchall(PDO::FETCH_ASSOC);
     $db = NULL;
     
@@ -23,9 +23,9 @@ $json = file_get_contents('php://input');
    }
    else {
     $db = new PDO("sqlite:content.db");
-        $sql = "SELECT * FROM orderInfo WHERE (email='$email' AND status='Pending') OR (email='$email' AND status='In Progress')";
-        $stmt = $db->query($sql);
-        // return cart as an associative array
+    $sql = "SELECT * FROM orderInfo WHERE (email='$email' AND status='Pending') OR (email='$email' AND status='In Progress')";
+    $stmt = $db->query($sql);
+    // return cart as an associative array
     $orderInfo = $stmt->fetchall(PDO::FETCH_ASSOC);
     $db = NULL;
     

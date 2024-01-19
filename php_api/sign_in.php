@@ -2,42 +2,44 @@
 session_start();
 include "functions.php";
 
-    // Get JSON inputs, store in variable
-    $json = file_get_contents('php://input');
-    
-    // Parse JSON format to PHP object
-    $obj = json_decode($json,true);
-    
-    // Set user email variable from input
+    $json = file_get_contents('php://input'); // Get JSON inputs, store in variable
+    $obj = json_decode($json, true);
     $email = $obj['email'];
-    
-    // Set password from input value
     $password = $obj['password'];
-    
     $validEmail = false;
     $validPassword = false;
-    if ($email != NULL) {        // Check if input is empty for email
+
+    if ($email != NULL) 
+    {
         $validEmail = true;
     }
-    else {
+    else 
+    {
         $msgs['emailErr'] = "Email address is required";
     }
-    if ($password != NULL) {   // Check if input is empty for password
-    $validPassword = true;
+
+    if ($password != NULL) 
+    {
+        $validPassword = true;
     }
-    else {
+    else 
+    {
         $msgs['passErr'] = "Password is required";
     }
-    if ($validEmail && $validPassword) {
-        $record = getUserRecord($email);  // Calls function to return user record
-        $hashed = $record['password'];    // Set the password retrieved from DB as variable
+
+    if ($validEmail && $validPassword)
+    {
+        $record = getUserRecord($email);
+        $hashed = $record['password'];
         
         // Use built in function to compare entered password to hashed password in database
-        if ($record && password_verify($password, $hashed)) {    
-        $_SESSION['record'] = $record;        
-        $msgs['succ'] = "Success";
+        if ($record && password_verify($password, $hashed)) 
+        {    
+            $_SESSION['record'] = $record;        
+            $msgs['succ'] = "Success";
         }
-        else {
+        else 
+        {
             $msgs['incorrect'] = "Incorrect Email/Password Entry";
         }
     }
