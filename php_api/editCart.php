@@ -18,7 +18,8 @@ session_start();
         {
             deleteItem($email, $item_id);
         }
-        if ($task == 'changeQ') {
+        if ($task == 'changeQ')
+        {
             $quantity = $obj['newQuant'];
             changeQuantity($quantity, $email, $item_id);
         }
